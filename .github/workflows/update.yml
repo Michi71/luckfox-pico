@@ -1,0 +1,26 @@
+name: 'Submodules Sync'
+
+on:
+  # Allows you to run this workflow manually from the Actions tab or through HTTP API
+  workflow_dispatch:
+
+jobs:
+  # This workflow contains a single job called "update"
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Pull & update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+
+      - name: Commit & push changes
+        run: |
+          git config --global user.email "m.geerken@address-solutions.de"
+          git config --global user.name "Michi71"
+          git commit -am "Update submodules"
+          git push
