@@ -67,7 +67,7 @@ export CONFIG_RK_IVE=y
 export CONFIG_RK_CRYPTO=n
 
 # Enable alsa-lib
-# export CONFIG_ALSA_LIB=y
+export CONFIG_ALSA_LIB=y
 
 # Enable libv4l
 # export CONFIG_LIBV4L=y
